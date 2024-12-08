@@ -1,0 +1,11 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "uuid": "^11.0.3",
+    "ws": "^8.18.0"
+  }
+}
