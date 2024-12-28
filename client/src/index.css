@@ -4,6 +4,6 @@
 
 :root {
   #root {
-    @apply h-screen;
+    @apply h-screen flex;
   }
 }

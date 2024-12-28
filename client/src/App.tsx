@@ -1,21 +1,32 @@
-import { useCallback } from 'react'
-import './App.css'
-import { useWebsockets } from "./hooks/useWebsockets"
+import { useWebSocketContext } from "./hooks/useWebsockets";
+
+import { cn } from "./utils/cl";
+
+import InitialLoading from "./components/initial-loading/InitialLoading";
+import { TopBar } from "./components/top-bar/TopBar";
+import { MainContainer } from "./components/main-container/MainContainer";
+
+import "./App.css";
 
 function App() {
-  const ws = useWebsockets()
-
-  const handleClick = useCallback(() => {
-    ws.sendJsonMessage({ message: "Hello from client" })
-  }, [ws])
+  const { isConnecting } = useWebSocketContext();
 
   return (
-    <main className="flex justify-center items-center">
-      Hello Vite + React!
-
-      <button onClick={handleClick}>Click me</button>
+    <main
+      className={cn(
+        "flex-grow flex flex-col bg-gradient-to-br from-emerald-900 to-emerald-700"
+      )}
+    >
+      {isConnecting ? (
+        <InitialLoading />
+      ) : (
+        <>
+          <TopBar />
+          <MainContainer classNames="flex-grow" />
+        </>
+      )}
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

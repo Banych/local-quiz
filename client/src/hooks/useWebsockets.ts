@@ -1,14 +1,4 @@
-import useWebSocket from "react-use-websocket"
-import { faker } from "@faker-js/faker"
+import { useContext } from "react";
+import { WebSocketContext } from "../context/WebSocketContext";
 
-export const useWebsockets = () => {
-
-    const ws = useWebSocket(
-        "ws://localhost:8000/",
-        {
-            share: true,
-        }
-    )
-
-    return ws
-}
+export const useWebSocketContext = () => useContext(WebSocketContext);
