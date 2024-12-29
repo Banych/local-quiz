@@ -1,7 +1,7 @@
 import useWebSocket, { ReadyState } from "react-use-websocket";
-import { WebSocketContext } from "../context/WebSocketContext";
+import { WebSocketContext } from "@/context/WebSocketContext";
 import { useEffect, useMemo, useState } from "react";
-import { User } from "../models/User";
+import { User } from "@/models/User";
 
 export const WebSocketProvider = ({
   children,
@@ -39,7 +39,11 @@ export const WebSocketProvider = ({
       if (data.CURRENT_USER) {
         setCurrentUser(data.CURRENT_USER);
 
-        localStorage.setItem("currentUser", JSON.stringify(data.CURRENT_USER));
+        const useForStorage = { ...data.CURRENT_USER };
+        delete useForStorage.id;
+        delete useForStorage.state;
+
+        localStorage.setItem("currentUser", JSON.stringify(useForStorage));
       }
       if (data.NEW_USER) {
         setUsers((prev) => ({ ...prev, [data.NEW_USER.uuid]: data.NEW_USER }));

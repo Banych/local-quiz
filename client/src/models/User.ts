@@ -1,5 +1,7 @@
+import { UserState } from "@/models/UserState";
+
 export type User = {
   username: string;
-  state: Record<string, unknown>;
+  state: UserState;
   id: string;
 };

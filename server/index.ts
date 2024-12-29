@@ -4,6 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 import { faker } from "@faker-js/faker";
 import { Question, Score, User } from "./models";
 import { parse } from "url";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const server = http.createServer();
 const wsServer = new WebSocketServer({ server });
@@ -32,6 +35,46 @@ const questions: Question[] = [
     correctAnswer: "6",
   },
 ];
+
+const handleAdminAuthorization = (
+  req: http.IncomingMessage,
+  res: http.ServerResponse
+) => {
+  let body = "";
+  req.on("data", (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on("end", () => {
+    const { password } = JSON.parse(body);
+
+    if (password === process.env.ADMIN_PASSWORD) {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ authorized: true }));
+    } else {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ authorized: false }));
+    }
+  });
+};
+
+const handleAddQuestion = (
+  req: http.IncomingMessage,
+  res: http.ServerResponse
+) => {
+  let body = "";
+  req.on("data", (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on("end", () => {
+    const newQuestion: Question = JSON.parse(body);
+    questions.push(newQuestion);
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ success: true }));
+  });
+};
 
 const handleClose = (uuid: string) => {
   console.log(`${users[uuid].username} disconnected`);
@@ -92,6 +135,22 @@ wsServer.on("connection", (connection: WebSocket, req) => {
   sendCurrentUserUpdate(uuid);
   sendInitialData(uuid);
   broadcastNewUser(uuid);
+
+  console.log(`${users[uuid].username} connected`);
+});
+
+server.on("request", (req, res) => {
+  if (req.method === "POST" && req.url?.startsWith("/admin/authorize")) {
+    handleAdminAuthorization(req, res);
+  } else if (
+    req.method === "POST" &&
+    req.url?.startsWith("/admin/add-question")
+  ) {
+    handleAddQuestion(req, res);
+  } else {
+    res.writeHead(404, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: "Not found" }));
+  }
 });
 
 server.listen(port, () => {

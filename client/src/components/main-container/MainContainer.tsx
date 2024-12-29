@@ -1,7 +1,7 @@
 import { ClassValue } from "clsx";
-import { useWebSocketContext } from "../../hooks/useWebsockets";
-import Users from "../Users";
-import { cn } from "../../utils/cl";
+import { useWebSocketContext } from "@/hooks/useWebsockets";
+import { cn } from "@/utils/cl";
+import Users from "@/components/users/Users";
 
 export type MainContainerProps = {
   classNames?: ClassValue;

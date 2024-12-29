@@ -1,10 +1,10 @@
-import { useWebSocketContext } from "./hooks/useWebsockets";
+import { useWebSocketContext } from "@/hooks/useWebsockets";
 
-import { cn } from "./utils/cl";
+import { cn } from "@/utils/cl";
 
-import InitialLoading from "./components/initial-loading/InitialLoading";
-import { TopBar } from "./components/top-bar/TopBar";
-import { MainContainer } from "./components/main-container/MainContainer";
+import InitialLoading from "@/components/initial-loading/InitialLoading";
+import { TopBar } from "@/components/top-bar/top-bar/TopBar";
+import { MainContainer } from "@/components/main-container/MainContainer";
 
 import "./App.css";
 
