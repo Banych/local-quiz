@@ -11,7 +11,7 @@
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "true"
   },
   "eslint.validate": [
     "javascript",
@@ -19,15 +19,16 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.workingDirectories": [
-    {
-      "directory": "./client",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "./server",
-      "changeProcessCWD": true
-    }
-  ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnType": false, // required
+  "editor.formatOnPaste": true, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "files.autoSave": "onFocusChange", // optional but recommended
+  "vs-code-prettier-eslint.prettierLast": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
