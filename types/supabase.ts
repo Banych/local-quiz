@@ -36,8 +36,10 @@ export type Database = {
       'game-sessions': {
         Row: {
           created_at: string;
+          created_by: string;
           finshed_at: string | null;
           id: string;
+          name: string | null;
           players_ids: Json;
           question_ids: Json;
           scoreboard: Json;
@@ -45,8 +47,10 @@ export type Database = {
         };
         Insert: {
           created_at?: string;
+          created_by: string;
           finshed_at?: string | null;
           id?: string;
+          name?: string | null;
           players_ids?: Json;
           question_ids?: Json;
           scoreboard?: Json;
@@ -54,8 +58,10 @@ export type Database = {
         };
         Update: {
           created_at?: string;
+          created_by?: string;
           finshed_at?: string | null;
           id?: string;
+          name?: string | null;
           players_ids?: Json;
           question_ids?: Json;
           scoreboard?: Json;

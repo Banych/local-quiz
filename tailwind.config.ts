@@ -50,6 +50,29 @@ export default {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        sidebar: {
+          DEFAULT: 'hsl(var(--sidebar-background))',
+          foreground: 'hsl(var(--sidebar-foreground))',
+          primary: 'hsl(var(--sidebar-primary))',
+          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+          accent: 'hsl(var(--sidebar-accent))',
+          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+          border: 'hsl(var(--sidebar-border))',
+          ring: 'hsl(var(--sidebar-ring))',
+        },
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+        'text-color-change': 'text-color-change 4s infinite',
+      },
+      keyframes: {
+        'text-color-change': {
+          '0%, 100%': { color: 'hsl(var(--primary))' },
+          '20%': { color: 'hsl(var(--red))' },
+          '40%': { color: 'hsl(var(--yellow))' },
+          '60%': { color: 'hsl(var(--green))' },
+          '80%': { color: 'hsl(var(--blue))' },
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

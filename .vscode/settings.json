@@ -23,7 +23,6 @@
   "editor.formatOnType": false, // required
   "editor.formatOnPaste": true, // optional
   "editor.formatOnSaveMode": "file", // required to format on save
-  "files.autoSave": "onFocusChange", // optional but recommended
   "vs-code-prettier-eslint.prettierLast": false,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -33,5 +32,7 @@
   },
   "[tailwindcss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "prettier.endOfLine": "lf",
+  "files.eol": "\n"
 }
