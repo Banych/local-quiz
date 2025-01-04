@@ -1,9 +1,10 @@
-import { createClient } from "@/lib/supabase/server";
+import React from 'react';
+import { createClient } from '@/lib/supabase/server';
 
 export const QuestionsList: React.FC = async () => {
   const supabase = await createClient();
 
-  const { data } = await supabase.from("questions-pull").select("*");
+  const { data } = await supabase.from('questions-pull').select('*');
 
   return (
     <>

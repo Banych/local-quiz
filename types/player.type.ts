@@ -1,9 +1,9 @@
-import { Database } from "@/types/supabase";
+import { Database } from '@/types/supabase';
 
-export type PlayerDTO = Database["public"]["Tables"]["active-players"]["Row"];
+export type PlayerDTO = Database['public']['Tables']['active-players']['Row'];
 
 export type PlayerInsertDTO =
-  Database["public"]["Tables"]["active-players"]["Insert"];
+  Database['public']['Tables']['active-players']['Insert'];
 
-type PlayerUpdateDTO =
-            Database["public"]["Tables"]["active-players"]["Update"];
+export type PlayerUpdateDTO =
+  Database['public']['Tables']['active-players']['Update'];

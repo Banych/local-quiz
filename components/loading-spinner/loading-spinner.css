@@ -10,7 +10,7 @@
 
 .hypnotic:before,
 .hypnotic:after {
-  content: "";
+  content: '';
   grid-area: 1/1;
   border: inherit;
   border-radius: 50%;
