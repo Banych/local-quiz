@@ -11,7 +11,7 @@
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "true"
   },
   "eslint.validate": [
     "javascript",
@@ -19,15 +19,20 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.workingDirectories": [
-    {
-      "directory": "./client",
-      "changeProcessCWD": true
-    },
-    {
-      "directory": "./server",
-      "changeProcessCWD": true
-    }
-  ],
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnType": false, // required
+  "editor.formatOnPaste": true, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "vs-code-prettier-eslint.prettierLast": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.endOfLine": "lf",
+  "files.eol": "\n"
 }
