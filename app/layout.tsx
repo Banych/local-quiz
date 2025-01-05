@@ -8,6 +8,8 @@ import { SidebarProvider } from '@/components/ui/sidebar';
 import AppSidebar from '@/components/app-sidebar';
 import { cookies } from 'next/headers';
 import { Toaster } from '@/components/ui/toaster';
+import PlayerProvider from '@/components/providers/player-provider';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -46,13 +48,17 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider defaultOpen={defaultOpen}>
-            <main className="flex h-screen w-full">
-              <AppSidebar />
-              <Toaster />
-              <div className="flex grow overflow-auto p-6">{children}</div>
-            </main>
-          </SidebarProvider>
+          <TooltipProvider>
+            <SidebarProvider defaultOpen={defaultOpen}>
+              <main className="flex h-screen w-full">
+                <PlayerProvider>
+                  <AppSidebar />
+                  <Toaster />
+                  <div className="flex grow overflow-auto p-6">{children}</div>
+                </PlayerProvider>
+              </main>
+            </SidebarProvider>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

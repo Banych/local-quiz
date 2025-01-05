@@ -15,11 +15,11 @@ const eslintConfig = [
   ...compat.extends(
     'next/core-web-vitals',
     'next/typescript',
-    'plugin:prettier/recommended',
     'prettier/prettier',
     'plugin:react/recommended',
     'plugin:tailwindcss/recommended',
-    'plugin:css/standard'
+    'plugin:css/standard',
+    'plugin:prettier/recommended'
   ),
   eslintCssPlugin.configs['flat/standard'],
   eslintConfigPrettier,

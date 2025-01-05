@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Home, Logs } from 'lucide-react';
+import { Gamepad2, Home, Logs } from 'lucide-react';
 
 import {
   Sidebar,
@@ -19,7 +19,7 @@ import {
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import UserInfo from '@/components/user-info';
+import PlayerInfo from '@/components/players/player-info';
 import { ModeToggle } from '@/components/mode-toggle';
 
 // Menu items.
@@ -28,6 +28,11 @@ const items = [
     title: 'Home',
     url: '/',
     icon: Home,
+  },
+  {
+    title: 'Games',
+    url: '/games',
+    icon: Gamepad2,
   },
   {
     title: 'Scoreboard',
@@ -77,7 +82,7 @@ export function AppSidebar() {
       </SidebarContent>
       <SidebarFooter>
         <ModeToggle />
-        <UserInfo />
+        <PlayerInfo />
       </SidebarFooter>
     </Sidebar>
   );

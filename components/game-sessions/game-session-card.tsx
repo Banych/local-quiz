@@ -81,7 +81,7 @@ const GameSessionCard: React.FC<GameSessionCardProps> = ({ item }) => {
         <div>{JSON.stringify(item.players_ids)}</div>
       </CardContent>
       <CardFooter>
-        <Button variant="ghost" onClick={handleClick}>
+        <Button variant="secondary" onClick={handleClick}>
           Join
         </Button>
       </CardFooter>

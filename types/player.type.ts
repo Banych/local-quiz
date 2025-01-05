@@ -7,3 +7,5 @@ export type PlayerInsertDTO =
 
 export type PlayerUpdateDTO =
   Database['public']['Tables']['active-players']['Update'];
+
+export type PlayerFormType = Omit<PlayerInsertDTO, 'id' | 'created_at'>;
